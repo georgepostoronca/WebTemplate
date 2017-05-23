@@ -1,2 +1,2 @@
 # WebTemplate
-Gulp Project( Nunjucks, HTMl, (SCSS,SASS), JSON, Sprite (SVG, PNG) )
+Gulp Project( Nunjucks, HTML, (SCSS,SASS), JSON, Sprite (SVG, PNG) )
