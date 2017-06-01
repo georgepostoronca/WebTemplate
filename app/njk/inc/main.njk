@@ -1,0 +1,30 @@
+{% import "inc/macro.njk" as M %}
+
+{# Title #}
+{% if not title %}
+    {% set title = "Default" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="ru" {% if htmlClass %}class="{{ htmlClass | trim }}"{% endif %}>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ title }}</title>
+
+        <meta name="description" content="description"/>
+        <meta name="author" lang="ru" content="Author" />
+        <meta name="copyright" content="Copyright" />
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    </head>
+    <body {% if bodyClass %}class="{{ bodyClass | trim }}"{% endif %}>
+        <div id="wrapper">
+            {% include "block/header.njk" %}
+            {% block content %}{% endblock %}
+            {% include "block/footer.njk" %}
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+{# Include #}
+{% extends "inc/main.njk" %}
+
+{# Title #}
+{% set title = "Index" %}
+
+{# Dop Class #}
+{% set htmlClass = "htmlClass" %}
+{% set bodyClass = "bodyClass" %}
+
+
+{% block content %}
+
+<!-- Container -->
+<div id="container">
+    {{ "content" | safe }}
+    <h1>Content</h1>
+</div>
+{% endblock %}
