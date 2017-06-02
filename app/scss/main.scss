@@ -1,0 +1,20 @@
+// Seatings
+@import "setings/color";
+@import "setings/var";
+@import "setings/reset";
+@import "setings/postg";
+
+
+// cssGlobbingBegin
+@import "css/*.scss";
+// cssGlobbingEnd
+
+
+// cssGlobbingBegin
+@import "block/*.scss";
+// cssGlobbingEnd
+
+
+// cssGlobbingBegin
+@import "page/*.scss";
+// cssGlobbingEnd

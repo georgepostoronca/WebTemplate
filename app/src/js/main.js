@@ -1,0 +1,4 @@
+function index() {
+    alert("Index");
+}
+
