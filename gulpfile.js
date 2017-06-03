@@ -9,7 +9,6 @@ var plugins = require('gulp-load-plugins')({
 });
 
 
-
 // ==========================
 // PostCss
 // ==========================
@@ -68,10 +67,41 @@ gulp.task('css', getTaskPlg('css.js', processors));
 // JS
 gulp.task('js', getTask('js.js'));
 
+// Sync Ico
+gulp.task('syncIco', getTask('syncIco.js'));
+gulp.task('syncIcoBack', getTask('syncIcoBack.js'));
+
+// Sync Img
+gulp.task('syncImg', getTask('syncImg.js'));
+gulp.task('syncImgBack', getTask('syncImgBack.js'));
+
+// Sync Js
+gulp.task('syncJs', getTask('syncJs.js'));
+gulp.task('syncJsBack', getTask('syncJsBack.js'));
+
+// Sprite SVG
+// JS
+gulp.task('svg', getTask('svg.js'));
+
 
 gulp.task('default', function () {
     gulp.watch('app/njk/**/*.njk', ['njk']);
     gulp.watch('app/scss/**/*.scss', ['css']);
     gulp.watch('app/js/**/*.js', ['js']);
     gulp.watch('app/src/*.html', ['htmlValidate']);
+
+    // Sync Ico
+    gulp.watch('app/media/ico/*', ['syncIco']);
+    // gulp.watch('app/src/ico/*', ['syncIcoBack']);
+
+    // Sync Img
+    gulp.watch('app/media/img/*', ['syncImg']);
+    // gulp.watch('app/src/img/*', ['syncImgBack']);
+
+    // Sync JS
+    gulp.watch('app/js/include/*', ['syncJs']);
+    // gulp.watch('app/src/js/include/*', ['syncJsBack']);
+
+    // Sprite SVG
+    gulp.watch('app/media/svg/*.svg', ['svg', 'syncIco']);
 });
