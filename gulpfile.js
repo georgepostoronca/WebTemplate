@@ -80,8 +80,10 @@ gulp.task('syncJs', getTask('syncJs.js'));
 gulp.task('syncJsBack', getTask('syncJsBack.js'));
 
 // Sprite SVG
-// JS
 gulp.task('svg', getTask('svg.js'));
+
+// Sprite PNG
+gulp.task('png', getTask('png.js'));
 
 
 gulp.task('default', function () {
@@ -104,4 +106,7 @@ gulp.task('default', function () {
 
     // Sprite SVG
     gulp.watch('app/media/svg/*.svg', ['svg', 'syncIco']);
+
+    // Sprite PNG
+    gulp.watch('app/media/png/*.png', ['png', 'syncIco']);
 });
