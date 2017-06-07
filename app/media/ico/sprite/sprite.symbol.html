@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/dist/svg4everybody.js"></script>
+		<script>svg4everybody();</script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-arrow-dims { width: 19.8px; height: 7.7px; }
+	.svg-arrow-icon-dims { width: 20px; height: 20px; }
+	.svg-arrow-left-dims { width: 28.35px; height: 28.35px; }
+	.svg-calendar-dims { width: 28.35px; height: 28.35px; }
+	.svg-check-dims { width: 28.35px; height: 28.35px; }
+	.svg-cloud-sun-dims { width: 56.69px; height: 56.69px; }
+	.svg-comments-dims { width: 28.35px; height: 28.35px; }
+	.svg-commentsV4-dims { width: 28.35px; height: 28.35px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+	
+<!--
+	
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol id="arrow" viewBox="0 0 19.8 7.7" xmlns="http://www.w3.org/2000/svg"><style id="astyle3">.ast0{fill:#0e2426}</style><path class="ast0" id="apolygon5" d="M18.8 0L9.9 5.3 1 .3 0 2l9.5 5.3.2.4 10.1-6z"/></symbol>
+		<symbol id="arrow-icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><style>.bst0{fill:#231f20}</style><title>nav_icon</title><path class="bst0" d="M10 13.9L0 7.8l1.1-1.7 8.9 5.5 9-5.5 1 1.7z"/></symbol>
+		<symbol viewBox="0 0 28.35 28.35" id="arrow-left" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.516 14.156L18.879 3.792l.707.707-9.656 9.657 9.656 9.656-.707.707L8.516 14.156z"/></symbol>
+		<symbol viewBox="0 0 28.35 28.35" id="calendar" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22.156 24.156h-18v-20h20v20h-2zm-12-18h-4v4h4v-4zm0 6h-4v4h4v-4zm0 6h-4v4h4v-4zm2 4h4v-4h-4v4zm0-6h4v-4h-4v4zm0-6h4v-4h-4v4zm10-4h-4v4h4v-4zm0 6h-4v4h4v-4zm0 6h-4v4h4v-4z"/></symbol>
+		<symbol viewBox="0 0 28.35 28.35" id="check" xmlns="http://www.w3.org/2000/svg"><path d="M20.856 9.832l-.377-.366a1.09 1.09 0 0 0-1.507 0l-6.631 6.449-2.966-2.888a1.09 1.09 0 0 0-1.506 0l-.376.365a1.018 1.018 0 0 0 0 1.464l4.093 3.987a1.09 1.09 0 0 0 1.506 0l7.764-7.549c.413-.4.413-1.06 0-1.462z"/></symbol>
+		<symbol viewBox="0 0 56.69 56.69" id="cloud-sun" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M51.797 22.686l-4.566 1.763c0 .077-.076.077-.229.077-.305 0-.608-.23-.761-.537-.152-.383.076-.843.456-.997l4.566-1.763c.381-.153.838.077.99.46.152.384-.075.844-.456.997zm-4.719 10.808l4.49 2.07c.381.154.609.689.381 1.074a.835.835 0 0 1-.762.459c-.075 0-.228 0-.304-.076l-4.49-2.07c-.381-.152-.609-.689-.381-1.072.153-.385.685-.613 1.066-.385zm-4.947 1.151c-.229.154-.456.307-.761.307-.152 0-.305-.076-.457-.152-.38-.23-.38-.768-.151-1.15.38-.537.685-1.074.989-1.609a8.381 8.381 0 0 0 .228-6.364c-.761-2.07-2.282-3.756-4.338-4.6-3.12-1.457-6.85-.69-9.285 1.764a.825.825 0 0 1-1.142 0 .84.84 0 0 1 0-1.15 9.707 9.707 0 0 1 11.112-2.07c2.358 1.073 4.186 3.066 5.175 5.52.989 2.453.837 5.136-.229 7.589-.303.688-.684 1.377-1.141 1.915zm-1.523-18.246c-.151.23-.456.461-.761.461-.075 0-.229 0-.304-.077-.381-.153-.609-.69-.381-1.073l2.055-4.523c.152-.383.685-.613 1.065-.383.381.153.609.69.381 1.073l-2.055 4.522zm-10.959 0c-.076.077-.151.077-.229.077-.304 0-.608-.23-.761-.536l-1.75-4.6c-.152-.383.076-.843.456-.997.381-.153.838.076.989.46l1.751 4.6c.154.383-.075.843-.456.996zm3.958 16.099h.38c3.806 0 6.851 3.066 6.851 6.9 0 3.832-3.045 6.898-6.851 6.898H11.155c-3.805 0-6.85-3.066-6.85-6.898 0-3.834 3.045-6.9 6.85-6.9h.381c1.142-5.136 5.708-8.969 11.035-8.969 5.328 0 9.895 3.756 11.036 8.969zm-11.036-7.359c-4.794 0-8.904 3.603-9.589 8.355 0 .23-.152.385-.305.537-.152.154-.381.154-.608.154-.305-.078-.609-.078-.914-.078-2.892 0-5.251 2.377-5.251 5.291 0 2.912 2.359 5.289 5.251 5.289h22.832c2.893 0 5.252-2.377 5.252-5.289 0-2.914-2.359-5.291-5.252-5.291-.304 0-.608 0-.913.078-.228 0-.456 0-.608-.154-.152-.152-.305-.307-.305-.537-.684-4.752-4.795-8.355-9.59-8.355z"/></symbol>
+		<symbol viewBox="0 0 28.35 28.35" id="comments" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.175 18.157h-5l-3 2.999v-2.999h-4a2 2 0 0 1-2-2V9.156a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7.001a2 2 0 0 1-2 2zm0-8.001a1 1 0 0 0-1-1h-10a1 1 0 0 0-1 1v5c0 .552.448 1.001 1 1.001h10a1 1 0 0 0 1-1.001v-5z"/></symbol>
+		<symbol viewBox="0 0 28.35 28.35" id="commentsV4" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.175 18.157h-5l-3 2.999v-2.999h-4a2 2 0 0 1-2-2V9.156a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7.001a2 2 0 0 1-2 2zm0-8.001a1 1 0 0 0-1-1h-10a1 1 0 0 0-1 1v5c0 .552.448 1.001 1 1.001h10a1 1 0 0 0 1-1.001v-5z"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+		
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode" target="_blank">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+	
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="arrow">
+					<div class="icon-box">
+						
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="#arrow"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="arrow-icon">
+					<div class="icon-box">
+						
+						<!-- arrow-icon -->
+						<svg class="svg-arrow-icon-dims">
+							<use xlink:href="#arrow-icon"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow-icon</h2>
+				</li>
+				<li title="arrow-left">
+					<div class="icon-box">
+						
+						<!-- arrow-left -->
+						<svg class="svg-arrow-left-dims">
+							<use xlink:href="#arrow-left"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow-left</h2>
+				</li>
+				<li title="calendar">
+					<div class="icon-box">
+						
+						<!-- calendar -->
+						<svg class="svg-calendar-dims">
+							<use xlink:href="#calendar"></use>
+						</svg>
+						
+					</div>
+					<h2>calendar</h2>
+				</li>
+				<li title="check">
+					<div class="icon-box">
+						
+						<!-- check -->
+						<svg class="svg-check-dims">
+							<use xlink:href="#check"></use>
+						</svg>
+						
+					</div>
+					<h2>check</h2>
+				</li>
+				<li title="cloud-sun">
+					<div class="icon-box">
+						
+						<!-- cloud-sun -->
+						<svg class="svg-cloud-sun-dims">
+							<use xlink:href="#cloud-sun"></use>
+						</svg>
+						
+					</div>
+					<h2>cloud-sun</h2>
+				</li>
+				<li title="comments">
+					<div class="icon-box">
+						
+						<!-- comments -->
+						<svg class="svg-comments-dims">
+							<use xlink:href="#comments"></use>
+						</svg>
+						
+					</div>
+					<h2>comments</h2>
+				</li>
+				<li title="commentsV4">
+					<div class="icon-box">
+						
+						<!-- commentsV4 -->
+						<svg class="svg-commentsV4-dims">
+							<use xlink:href="#commentsV4"></use>
+						</svg>
+						
+					</div>
+					<h2>commentsV4</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+	
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+				
+				<li title="arrow">
+					<div class="icon-box">
+						
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="sprite.svg#arrow"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="arrow-icon">
+					<div class="icon-box">
+						
+						<!-- arrow-icon -->
+						<svg class="svg-arrow-icon-dims">
+							<use xlink:href="sprite.svg#arrow-icon"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow-icon</h2>
+				</li>
+				<li title="arrow-left">
+					<div class="icon-box">
+						
+						<!-- arrow-left -->
+						<svg class="svg-arrow-left-dims">
+							<use xlink:href="sprite.svg#arrow-left"></use>
+						</svg>
+						
+					</div>
+					<h2>arrow-left</h2>
+				</li>
+				<li title="calendar">
+					<div class="icon-box">
+						
+						<!-- calendar -->
+						<svg class="svg-calendar-dims">
+							<use xlink:href="sprite.svg#calendar"></use>
+						</svg>
+						
+					</div>
+					<h2>calendar</h2>
+				</li>
+				<li title="check">
+					<div class="icon-box">
+						
+						<!-- check -->
+						<svg class="svg-check-dims">
+							<use xlink:href="sprite.svg#check"></use>
+						</svg>
+						
+					</div>
+					<h2>check</h2>
+				</li>
+				<li title="cloud-sun">
+					<div class="icon-box">
+						
+						<!-- cloud-sun -->
+						<svg class="svg-cloud-sun-dims">
+							<use xlink:href="sprite.svg#cloud-sun"></use>
+						</svg>
+						
+					</div>
+					<h2>cloud-sun</h2>
+				</li>
+				<li title="comments">
+					<div class="icon-box">
+						
+						<!-- comments -->
+						<svg class="svg-comments-dims">
+							<use xlink:href="sprite.svg#comments"></use>
+						</svg>
+						
+					</div>
+					<h2>comments</h2>
+				</li>
+				<li title="commentsV4">
+					<div class="icon-box">
+						
+						<!-- commentsV4 -->
+						<svg class="svg-commentsV4-dims">
+							<use xlink:href="sprite.svg#commentsV4"></use>
+						</svg>
+						
+					</div>
+					<h2>commentsV4</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Sat, 03 Jun 2017 20:56:01 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

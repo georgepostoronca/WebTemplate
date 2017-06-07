@@ -30,21 +30,23 @@ module.exports = function (gulp, plugins, plg, postcss) {
 
         // AutoPrefixer
         .pipe(plugins.autoprefixer({
-            browsers: ['last 16 versions'],
+            browsers: ['last 16 versions', 'ie >= 9'],
             cascade: false
         }))
 
         .pipe(plugins.cssbeautify())
         .pipe(plugins.stripCssComments())
-
+        .pipe(plugins.sourcemaps.write("./"))
         .pipe(gulp.dest("app/src/css/"))
 
-        // Minify
-        .pipe(plugins.rename({suffix: '.map'}))
-        // .pipe(plugins.csso())
 
-        .pipe(plugins.sourcemaps.write())
+        // Minify
+        // .pipe(plugins.rename({suffix: '.min'}))
+        // .pipe(plugins.csso())
+        // .pipe(gulp.dest('app/src/css/'))
+
+
         .pipe(plugins.notify({ message: 'CSS task complete' }))
-        .pipe(gulp.dest('app/src/css/'));
+        .pipe(plugins.browserSync.reload({stream:true}));
     };
 };

@@ -1,3 +1,11 @@
-{% macro test(args) %}
-    {{ args }}
+{% macro svg(name, class) %}
+    {% if class %}
+        <svg class="svg svg-{{ name }} {{ class }}" width="50" height="50">
+            <use xlink:href="ico/sprite/sprite.svg#{{ name }}"></use>
+        </svg>
+    {% else %}
+        <svg class="svg svg-{{ name }}" width="50" height="50">
+            <use xlink:href="ico/sprite/sprite.svg#{{ name }}"></use>
+        </svg>
+    {% endif %}
 {% endmacro %}

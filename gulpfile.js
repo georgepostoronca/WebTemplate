@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var fs = require("fs");
 var plugins = require('gulp-load-plugins')({
     rename: {
         'browser-sync': 'browserSync',
@@ -7,6 +8,7 @@ var plugins = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'gulp.*', 'postcss', 'browser-sync'],
     DEBUG: false
 });
+var json = JSON.parse(fs.readFileSync('./host.json'));
 
 
 // ==========================
@@ -25,6 +27,7 @@ var will_change = require('postcss-will-change');
 var atImport = require("postcss-import");
 var zindex = require("postcss-zindex");
 var lost = require("lost");
+var sorting = require("postcss-sorting");
 
 var processors = [
 	will_change,
@@ -39,6 +42,7 @@ var processors = [
     pixrem,
 	atImport(),
 	zindex(),
+    sorting()
 ];
 // ==========================
 // ==========================
@@ -52,6 +56,10 @@ function getTask(task) {
 
 function getTaskPlg(task, plg) {
     return require('./task/' + task)(gulp, plugins, plg, postcss);
+}
+
+function getTaskSet(task, plg) {
+    return require('./task/' + task)(gulp, plugins, json);
 }
 
 
@@ -85,8 +93,11 @@ gulp.task('svg', getTask('svg.js'));
 // Sprite PNG
 gulp.task('png', getTask('png.js'));
 
+// BrowserSync
+gulp.task('browserSync', getTaskSet('browserSync.js'));
 
-gulp.task('default', function () {
+
+gulp.task('watcher', function () {
     gulp.watch('app/njk/**/*.njk', ['njk']);
     gulp.watch('app/scss/**/*.scss', ['css']);
     gulp.watch('app/js/**/*.js', ['js']);
@@ -110,3 +121,5 @@ gulp.task('default', function () {
     // Sprite PNG
     gulp.watch('app/media/png/*.png', ['png', 'syncIco']);
 });
+
+gulp.task('default', ['watcher', 'browserSync']);

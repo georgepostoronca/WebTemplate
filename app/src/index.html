@@ -13,10 +13,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <link rel="stylesheet" href="css/main.map.css">
+    <link rel="stylesheet" href="css/main.map.css?v=1496869837133">
 </head>
 
 <body class="bodyClass">
+
     <div id="wrapper">
 
         <!-- Header -->
@@ -26,9 +27,18 @@
 
         <!-- Container -->
         <div id="container">
-            content
-            <h1>Content</h1>
+
+            <svg class="svg svg-arrow index-svg-class" width="50" height="50">
+                <use xlink:href="ico/sprite/sprite.svg#arrow"></use>
+            </svg>
+
+            <svg class="svg svg-check index-svg-class" width="50" height="50">
+                <use xlink:href="ico/sprite/sprite.svg#check"></use>
+            </svg>
+
+
         </div>
+
 
         <!-- Footer -->
         <footer id="footer">
@@ -36,6 +46,17 @@
         </footer>
 
     </div>
+
+
+    <script src="js/include/jquery-3.0.0.min.js"></script>
+    <script src="js/include/jquery.maskedinput.min.js"></script>
+    <script src="js/include/svg4everybody.min.js"></script>
+
+
+    <script src="js/main.js?v=1496869837133"></script>
+    <script>
+        svg4everybody();
+    </script>
 </body>
 
 </html>

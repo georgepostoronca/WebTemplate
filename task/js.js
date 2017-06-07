@@ -14,7 +14,7 @@ module.exports = function (gulp, plugins) {
 		// Uglify
 		.pipe(plugins.uglify())
 		.pipe(plugins.rename({suffix: ".min"}))
-		.pipe(gulp.dest("app/src/js"));
-		// .pipe(browserSync.reload({stream:true}));
+		.pipe(gulp.dest("app/src/js"))
+        .pipe(plugins.browserSync.reload({stream:true}));
     };
 };

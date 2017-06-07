@@ -1,5 +1,7 @@
 module.exports = function (gulp, plugins) {
     return function () {
+        var time = new Date().getTime();
+
         gulp.src('app/njk/*.njk')
             .pipe(plugins.plumber())
             .pipe(plugins.nunjucksRender({
@@ -7,6 +9,9 @@ module.exports = function (gulp, plugins) {
                 envOptions: {
                     trimBlocks: true,
                     lstripBlocks: true
+                },
+                data: {
+                    timestamp: time
                 }
             })).on('error', function(err) {
     			plugins.notify().write(err);
@@ -16,6 +21,7 @@ module.exports = function (gulp, plugins) {
                 indent_size : 4,
             }))
             .pipe(plugins.notify({ message: 'HTML task complete' }))
-            .pipe(gulp.dest('app/src/'));
+            .pipe(gulp.dest('app/src/'))
+            .pipe(plugins.browserSync.reload({stream:true}));
     };
 };
