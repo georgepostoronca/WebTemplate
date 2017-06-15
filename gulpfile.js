@@ -9,6 +9,7 @@ var plugins = require('gulp-load-plugins')({
     DEBUG: false
 });
 var json = JSON.parse(fs.readFileSync('./host.json'));
+var first = 0;
 
 
 // ==========================
@@ -122,4 +123,6 @@ gulp.task('watcher', function () {
     gulp.watch('app/media/png/*.png', ['png', 'syncIco']);
 });
 
-gulp.task('default', ['watcher', 'browserSync']);
+gulp.task("start", ["njk", "css", "js", "syncIco", "syncImg", "syncJs"]);
+
+gulp.task('default', ['watcher','start', 'browserSync']);

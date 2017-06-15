@@ -7,6 +7,13 @@
 */
 
 
+// Fix Scroll Vibrate
+.fix-scroll-vibrate {
+    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+}
+
+
 //====================================================
 //  Display
 //====================================================
