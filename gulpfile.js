@@ -99,9 +99,9 @@ gulp.task('browserSync', getTaskSet('browserSync.js'));
 
 
 gulp.task('watcher', function () {
-    gulp.watch('app/njk/**/*.njk', ['njk']);
-    gulp.watch('app/scss/**/*.scss', ['css']);
-    gulp.watch('app/js/**/*.js', ['js']);
+    gulp.watch(['app/njk/**/*.njk', 'app/block/**/*.njk'], ['njk']);
+    gulp.watch(['app/scss/**/*.scss', 'app/block/**/*.scss'], ['css']);
+    gulp.watch(['app/js/**/*.js', 'app/block/**/*.js'], ['js']);
     gulp.watch('app/src/*.html', ['htmlValidate']);
 
     // Sync Ico

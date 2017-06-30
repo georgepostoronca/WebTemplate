@@ -1,5 +1,4 @@
 // Seatings
-@import "setings/notify";
 @import "setings/color";
 @import "setings/var";
 @import "setings/reset";
@@ -12,7 +11,7 @@
 
 
 // cssGlobbingBegin
-@import "block/*.scss";
+@import "../block/**/*.scss";
 // cssGlobbingEnd
 
 

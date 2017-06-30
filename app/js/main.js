@@ -1,1 +1,1 @@
-//= include block/*.js
+//= include ../block/**/*.js
