@@ -2,10 +2,10 @@ module.exports = function (gulp, plugins) {
     return function () {
         var time = new Date().getTime();
 
-        gulp.src('app/njk/*.njk')
+        gulp.src(['app/njk/*.njk', 'app/block/*.njk'])
             .pipe(plugins.plumber())
             .pipe(plugins.nunjucksRender({
-                path: ['./app/njk/'],
+                path: ['./app/njk/', './app/block/'],
                 envOptions: {
                     trimBlocks: true,
                     lstripBlocks: true
