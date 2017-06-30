@@ -1,7 +1,7 @@
 // JS
 module.exports = function (gulp, plugins) {
     return function () {
-        return gulp.src("app/js/*.js")
+        return gulp.src("app/js/main.js")
         .pipe(plugins.plumber())
 		.pipe(plugins.using({ prefix: 'After changed:', color:'green', filesize:true }))
 
