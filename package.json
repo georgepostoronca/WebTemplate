@@ -49,7 +49,8 @@
     "postcss-will-change": "^2.0.0",
     "postcss-import": "^10.0.0",
     "postcss-zindex": "^2.2.0",
-    "lost": "^8.0.0"
+    "lost": "^8.0.0",
+    "postcss-pseudoelements": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
