@@ -3698,12 +3698,13 @@ table {
     }
 }
 
-header#header {
-    width: 100%;
+.footer {
+    background-color: red;
 }
 
-.index {
-    color: red;
+.header {
+    background-color: blue;
 }
+
 
 /*# sourceMappingURL=main.css.map */
