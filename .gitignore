@@ -19,8 +19,6 @@ $RECYCLE.BIN/
 ## Directories
 #################
 
-./npm_modules
-./node_modules
-./PSD
-
-node_modules/
+npm_modules
+node_modules
+PSD
