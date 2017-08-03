@@ -9,7 +9,8 @@ module.exports = function (gulp, plugins, json) {
             port: 8080,
             open: false,
             notify: false,
-            logLevel: "info"
+            logLevel: "info",
+            tunnel: true
         });
     };
 };
