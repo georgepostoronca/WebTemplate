@@ -22,3 +22,5 @@ $RECYCLE.BIN/
 npm_modules
 node_modules
 PSD
+
+app/src/*
