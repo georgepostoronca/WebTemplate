@@ -88,6 +88,9 @@ gulp.task('syncImgBack', getTask('syncImgBack.js'));
 gulp.task('syncJs', getTask('syncJs.js'));
 gulp.task('syncJsBack', getTask('syncJsBack.js'));
 
+// Sync Misc
+gulp.task('syncMisc', getTask('syncMisc.js'));
+
 // Sprite SVG
 gulp.task('svg', getTask('svg.js'));
 
@@ -123,6 +126,6 @@ gulp.task('watcher', function () {
     gulp.watch('app/media/png/*.png', ['png', 'syncIco']);
 });
 
-gulp.task("start", ["njk", "css", "js", "syncIco", "syncImg", "syncJs"]);
+gulp.task("start", ["njk", "css", "js", "syncIco", "syncImg", "syncJs", "syncMisc"]);
 
 gulp.task('default', ['watcher','start', 'browserSync']);
