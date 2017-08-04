@@ -9,12 +9,12 @@ module.exports = function (gulp, plugins) {
 		.pipe(plugins.include())
 
 		// Dest
-		.pipe(gulp.dest("app/src/js/"))
+		.pipe(gulp.dest("dist/js/"))
 
 		// Uglify
 		.pipe(plugins.uglify())
 		.pipe(plugins.rename({suffix: ".min"}))
-		.pipe(gulp.dest("app/src/js"))
+		.pipe(gulp.dest("dist/js"))
         .pipe(plugins.browserSync.reload({stream:true}));
     };
 };
