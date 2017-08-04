@@ -22,7 +22,7 @@ module.exports = function (gulp, plugins) {
         indent_size: 4
       }))
       .pipe(plugins.notify({ message: 'HTML task complete' }))
-      .pipe(gulp.dest('app/src/'))
+      .pipe(gulp.dest('dist/'))
       .pipe(plugins.browserSync.reload({stream: true}))
   }
 }
