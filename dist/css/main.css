@@ -3698,12 +3698,19 @@ table {
     }
 }
 
-.footer {
-    background-color: red;
+.header__wrap {
+    padding: 100px;
 }
 
-.header {
-    background-color: blue;
+.header__wrap > h1 {
+    display: inline-block;
+    color: red;
+    font-size: 50px;
+    font-family: Sans;
+}
+
+.inlineBlock {
+    display: inline-block;
 }
 
 

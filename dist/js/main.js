@@ -1,9 +1,4 @@
-function footer() {
-    console.log("Footer");
-    return 1;
-}
-
-function header() {
-    console.log("Header");
+function al(name) {
+    alert(name);
 }
 

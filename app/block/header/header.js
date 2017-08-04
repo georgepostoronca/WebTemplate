@@ -1,3 +1,3 @@
-function header() {
-    console.log("Header");
+function al(name) {
+    alert(name);
 }

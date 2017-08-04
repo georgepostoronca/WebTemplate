@@ -28,15 +28,7 @@
     <body {% if bodyClass %}class="{{ bodyClass | trim }}"{% endif %}>
 
         <div id="wrapper">
-            {% include "header/header.njk" %}
-
-            <!-- Container -->
-            <div id="container">
-                {% block content %}{% endblock %}
-            </div>
-
-            {% include "footer/footer.njk" %}
-
+            {% block content %}{% endblock %}
         </div>
 
 
