@@ -4,7 +4,7 @@ module.exports = function (gulp, plugins, json) {
         console.log(json.host);
         plugins.browserSync.init({
             server: {
-                baseDir: "dist/src/"
+                baseDir: "dist"
             },
             port: 8080,
             open: false,

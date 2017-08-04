@@ -8,7 +8,7 @@ module.exports = function (gulp, plugins) {
 			cssName: 'spritePng.css',
 			padding: 2
 		}));
-		spriteData.img.pipe(gulp.dest('app/src/ico/'));
+		spriteData.img.pipe(gulp.dest('dist/ico/'));
 		spriteData.css.pipe(gulp.dest('app/scss/css/'));
 
     };
