@@ -37,7 +37,7 @@ module.exports = function (gulp, plugins, plg, postcss) {
         .pipe(plugins.cssbeautify())
         .pipe(plugins.stripCssComments())
         .pipe(plugins.sourcemaps.write("./"))
-        .pipe(gulp.dest("app/src/css/"))
+        .pipe(gulp.dest("dist/css/"))
 
 
         // Minify
