@@ -169,3 +169,11 @@
         opacity: 0;
     }
 }
+
+
+
+.space-before-after {
+	&:after, &:before {
+		content: "\00a0";
+	}
+}
