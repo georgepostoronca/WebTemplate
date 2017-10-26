@@ -3698,6 +3698,10 @@ table {
     }
 }
 
+.space-before-after:after, .space-before-after:before {
+    content: "\00a0";
+}
+
 .header__wrap {
     padding: 100px;
 }
