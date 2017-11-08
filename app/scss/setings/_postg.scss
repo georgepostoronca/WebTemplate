@@ -7,6 +7,30 @@
 */
 
 
+*,
+*::after,
+*::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+// 	font-family: 'Overpass Mono', monospace;
+// 	color: #edecf2;
+// 	background: #37373e;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	text-decoration: none;
+// 	color: #ff3d53;
+	outline: none;
+	transition: color 0.2s;
+}
+// ==========================
+
+
 // Fix Scroll Vibrate
 .fix-scroll-vibrate {
     transform: translateZ(0);
