@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, json) {
                 baseDir: "dist"
             },
             port: 8080,
-            open: false,
+            open: true,
             notify: false,
             logLevel: "info",
             tunnel: true
