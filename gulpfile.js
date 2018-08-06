@@ -1,14 +1,13 @@
 var gulp = require('gulp');
 var fs = require("fs");
 var plugins = require('gulp-load-plugins')({
-    rename: {
-        'browser-sync': 'browserSync',
-        'gulp-postcss': 'postcss',
-    },
-    pattern: ['gulp-*', 'gulp.*', 'postcss', 'browser-sync'],
-    DEBUG: false
+	rename: {
+		'browser-sync': 'browserSync',
+		'gulp-postcss': 'postcss',
+	},
+	pattern: ['gulp-*', 'gulp.*', 'postcss', 'browser-sync'],
+	DEBUG: false
 });
-var json = JSON.parse(fs.readFileSync('./host.json'));
 var first = 0;
 
 
@@ -36,14 +35,14 @@ var processors = [
 	cssnext(),
 	mqpacker(),
 	lost(),
-    color_rgba_fallback,
-    opacity,
-    pseudoelements,
-    vmin,
-    pixrem,
+	color_rgba_fallback,
+	opacity,
+	pseudoelements,
+	vmin,
+	pixrem,
 	atImport(),
 	zindex(),
-    sorting()
+	sorting()
 ];
 // ==========================
 // ==========================
@@ -52,15 +51,15 @@ var processors = [
 console.log(plugins);
 
 function getTask(task) {
-    return require('./task/' + task)(gulp, plugins);
+	return require('./task/' + task)(gulp, plugins);
 }
 
 function getTaskPlg(task, plg) {
-    return require('./task/' + task)(gulp, plugins, plg, postcss);
+	return require('./task/' + task)(gulp, plugins, plg, postcss);
 }
 
 function getTaskSet(task, plg) {
-    return require('./task/' + task)(gulp, plugins, json);
+	return require('./task/' + task)(gulp, plugins);
 }
 
 
@@ -99,27 +98,27 @@ gulp.task('browserSync', getTaskSet('browserSync.js'));
 
 
 gulp.task('watcher', function () {
-    gulp.watch(['app/njk/**/*.njk', 'app/block/**/*.njk'], ['njk']);
-    gulp.watch(['app/scss/**/*.scss', 'app/block/**/*.scss'], ['css']);
-    gulp.watch(['app/js/**/*.js', 'app/block/**/*.js'], ['js']);
-    gulp.watch('app/src/*.html', ['htmlValidate']);
+	gulp.watch(['app/njk/**/*.njk', 'app/block/**/*.njk'], ['njk']);
+	gulp.watch(['app/scss/**/*.scss', 'app/block/**/*.scss'], ['css']);
+	gulp.watch(['app/js/**/*.js', 'app/block/**/*.js'], ['js']);
+	gulp.watch('app/src/*.html', ['htmlValidate']);
 
-    // Sync Ico
-    gulp.watch('app/media/ico/*', ['syncIco']);
+	// Sync Ico
+	gulp.watch('app/media/ico/*', ['syncIco']);
 
-    // Sync Img
-    gulp.watch('app/media/img/*', ['syncImg']);
+	// Sync Img
+	gulp.watch('app/media/img/*', ['syncImg']);
 
-    // Sync JS
-    gulp.watch('app/js/include/*', ['syncJs']);
+	// Sync JS
+	gulp.watch('app/js/include/*', ['syncJs']);
 
-    // Sprite SVG
-    gulp.watch('app/media/svg/*.svg', ['svg', 'syncIco']);
+	// Sprite SVG
+	gulp.watch('app/media/svg/*.svg', ['svg', 'syncIco']);
 
-    // Sprite PNG
-    gulp.watch('app/media/png/*.png', ['png', 'syncIco']);
+	// Sprite PNG
+	gulp.watch('app/media/png/*.png', ['png', 'syncIco']);
 });
 
 gulp.task("start", ["njk", "css", "js", "syncIco", "syncImg", "syncJs", "syncMisc"]);
 
-gulp.task('default', ['watcher','start', 'browserSync']);
+gulp.task('default', ['watcher', 'start', 'browserSync']);
