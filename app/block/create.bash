@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir "./$1"
-if [ -d "./head-line" ]
+if [ -d "./$1" ]
 then
     touch "./$1/$1.js"
     touch "./$1/$1.njk"
