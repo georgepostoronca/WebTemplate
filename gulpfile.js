@@ -63,6 +63,40 @@ function getTaskSet(task, plg) {
 }
 
 
+// ==============================
+// Generate ListPage
+// ==============================
+gulp.task("listPages", function() {
+	var folder = "./dist/";
+	var list = [];
+	fs.readdirSync(folder).forEach(file => {
+		var m = file.split(".");
+
+		if (m[1] == "html") {
+			list.push(file)
+		}
+	})
+
+	gulp.src('app/njk/inc/list-page.njk')
+		.pipe(plugins.plumber())
+		.pipe(plugins.nunjucksRender({
+			path: ['./app/njk/inc'],
+			envOptions: {
+				trimBlocks: true,
+				lstripBlocks: true
+			},
+			data: {
+				pages: list
+			}
+		})).on('error', function (err) {
+			plugins.notify().write(err)
+			this.emit('end')
+		})
+		.pipe(gulp.dest('dist/'));
+});
+// ==============================
+// ==============================
+
 // HTML
 gulp.task('njk', getTask('njk.js'));
 
@@ -98,7 +132,7 @@ gulp.task('browserSync', getTaskSet('browserSync.js'));
 
 
 gulp.task('watcher', function () {
-	gulp.watch(['app/njk/**/*.njk', 'app/block/**/*.njk'], ['njk']);
+	gulp.watch(['app/njk/**/*.njk', 'app/block/**/*.njk'], ['njk', 'listPages']);
 	gulp.watch(['app/scss/**/*.scss', 'app/block/**/*.scss'], ['css']);
 	gulp.watch(['app/js/**/*.js', 'app/block/**/*.js'], ['js']);
 	gulp.watch('app/src/*.html', ['htmlValidate']);
