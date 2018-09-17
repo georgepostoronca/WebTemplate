@@ -5,7 +5,7 @@ module.exports = function (gulp, plugins) {
 			server: {
 				baseDir: "dist"
 			},
-			port: 8080,
+			port: 3000,
 			open: false,
 			notify: false,
 			logLevel: "info",
