@@ -28,12 +28,15 @@ var atImport = require("postcss-import");
 var zindex = require("postcss-zindex");
 var lost = require("lost");
 var sorting = require("postcss-sorting");
+var sortCSSmq = require('sort-css-media-queries');
 
 var processors = [
 	will_change,
 	unprefix(),
 	cssnext(),
-	mqpacker(),
+	mqpacker({
+		sort: sortCSSmq.desktopFirst
+	}),
 	lost(),
 	color_rgba_fallback,
 	opacity,
