@@ -52,7 +52,8 @@
     "postcss-unprefix": "^2.1.1",
     "postcss-vmin": "^3.0.0",
     "postcss-will-change": "^2.0.0",
-    "postcss-zindex": "^2.2.0"
+    "postcss-zindex": "^2.2.0",
+		"sort-css-media-queries": "^1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
