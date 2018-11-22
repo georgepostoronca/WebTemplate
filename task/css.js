@@ -46,7 +46,7 @@ module.exports = function (gulp, plugins, plg, postcss) {
         // .pipe(gulp.dest('app/src/css/'))
 
 
-        .pipe(plugins.notify({ message: 'CSS task complete' }))
+        .pipe(plugins.notify({ message: 'CSS task complete', onLast: true }))
         .pipe(plugins.browserSync.reload({stream:true}));
     };
 };
