@@ -26,10 +26,11 @@ module.exports = function (gulp, plugins) {
 			.pipe(plugins.htmlPrettify({
 				indent_size: 4
 			}))
-			.pipe(plugins.notify({
-				message: 'HTML task complete'
-			}))
 			.pipe(gulp.dest('dist/'))
+			.pipe(plugins.notify({
+				message: 'HTML task complete',
+				onLast: true
+			}))
 			.pipe(plugins.browserSync.reload({
 				stream: true
 			}))
