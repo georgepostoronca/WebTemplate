@@ -69,34 +69,34 @@ function getTaskSet(task, plg) {
 // ==============================
 // Generate ListPage
 // ==============================
-gulp.task("listPages", function() {
-	var folder = "./dist/";
-	var list = [];
-	fs.readdirSync(folder).forEach(file => {
-		var m = file.split(".");
+// gulp.task("listPages", function() {
+// 	var folder = "./dist/";
+// 	var list = [];
+// 	fs.readdirSync(folder).forEach(file => {
+// 		var m = file.split(".");
 
-		if (m[1] == "html") {
-			list.push(file)
-		}
-	})
+// 		if (m[1] == "html") {
+// 			list.push(file)
+// 		}
+// 	})
 
-	gulp.src('app/njk/inc/list-page.njk')
-		.pipe(plugins.plumber())
-		.pipe(plugins.nunjucksRender({
-			path: ['./app/njk/inc'],
-			envOptions: {
-				trimBlocks: true,
-				lstripBlocks: true
-			},
-			data: {
-				pages: list
-			}
-		})).on('error', function (err) {
-			plugins.notify().write(err)
-			this.emit('end')
-		})
-		.pipe(gulp.dest('dist/'));
-});
+// 	gulp.src('app/njk/inc/list-page.njk')
+// 		.pipe(plugins.plumber())
+// 		.pipe(plugins.nunjucksRender({
+// 			path: ['./app/njk/inc'],
+// 			envOptions: {
+// 				trimBlocks: true,
+// 				lstripBlocks: true
+// 			},
+// 			data: {
+// 				pages: list
+// 			}
+// 		})).on('error', function (err) {
+// 			plugins.notify().write(err)
+// 			this.emit('end')
+// 		})
+// 		.pipe(gulp.dest('dist/'));
+// });
 // ==============================
 // ==============================
 
