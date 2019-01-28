@@ -51,7 +51,7 @@ var processors = [
 // ==========================
 
 
-console.log(plugins);
+// console.log(plugins);
 
 function getTask(task) {
 	return require('./task/' + task)(gulp, plugins);
@@ -62,7 +62,7 @@ function getTaskPlg(task, plg) {
 }
 
 function getTaskSet(task, plg) {
-	return require('./task/' + task)(gulp, plugins);
+	return require('./task/' + task)(gulp, plugins, plg);
 }
 
 
@@ -110,7 +110,39 @@ gulp.task('htmlValidate', getTask('htmlValidate.js'));
 gulp.task('css', getTaskPlg('css.js', processors));
 
 // JS
-gulp.task('js', getTask('js.js'));
+var webpackStream = require('webpack-stream');
+// gulp.task('js', getTaskSet('js.js', webpackStream));
+gulp.task('js', function () {
+	return gulp.src('app/js/main.js')
+		.pipe(plugins.plumber())
+		.pipe(webpackStream({
+			// mode: 'production',
+      output: {
+        filename: 'main.js',
+      },
+      module: {
+        rules: [
+          {
+            test: /\.(js)$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader',
+            query: {
+              presets: ['env']
+            }
+          }
+        ]
+      },
+      // externals: {
+      //   jquery: 'jQuery'
+      // }
+    }))
+    .pipe(gulp.dest('./dist/js'))
+    // .pipe(plugins.uglify())
+    .pipe(plugins.rename({ suffix: '.min' }))
+    .pipe(gulp.dest('./dist/js'));
+});
+
+
 
 // Sync Ico
 gulp.task('syncIco', getTask('syncIco.js'));

@@ -4,10 +4,17 @@
   "description": "Gulp Template",
   "main": "gulpfile.js",
   "dependencies": {
+    "fancybox": "^3.0.1",
     "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.5.0"
+    "gulp-load-plugins": "^1.5.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@fancyapps/fancybox": "^3.5.6",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.18.12",
     "css-mqpacker": "^6.0.1",
     "fs": "0.0.1-security",
@@ -37,12 +44,13 @@
     "gulp-strip-css-comments": "^1.2.0",
     "gulp-svg-sprite": "^1.3.7",
     "gulp-svgmin": "^1.2.4",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify": "^3.0.1",
     "gulp-using": "^0.1.1",
     "gulp-util": "^3.0.8",
     "gulp-w3c-css": "^1.0.1",
     "gulp-w3cjs": "^1.3.0",
     "gulp.spritesmith": "^6.5.0",
+    "jquery": "^3.3.1",
     "lost": "^8.0.0",
     "postcss-cssnext": "^2.11.0",
     "postcss-import": "^10.0.0",
@@ -53,7 +61,9 @@
     "postcss-vmin": "^3.0.0",
     "postcss-will-change": "^2.0.0",
     "postcss-zindex": "^2.2.0",
-		"sort-css-media-queries": "^1.0"
+    "sort-css-media-queries": "^1.0",
+    "webpack": "^4.29.0",
+    "webpack-stream": "^5.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
