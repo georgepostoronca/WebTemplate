@@ -18,6 +18,7 @@ module.exports = function (gulp, plugins , webpackStream) {
 			// .pipe(plugins.browserSync.reload({stream:true}));
 		
 			.pipe(webpackStream({
+				mode: 'production',
 				output: {
 					filename: 'app.js',
 				},
