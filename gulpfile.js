@@ -111,35 +111,44 @@ gulp.task('css', getTaskPlg('css.js', processors));
 
 // JS
 var webpackStream = require('webpack-stream');
+const webpack = require('webpack');
 // gulp.task('js', getTaskSet('js.js', webpackStream));
 gulp.task('js', function () {
 	return gulp.src('app/js/main.js')
 		.pipe(plugins.plumber())
 		.pipe(webpackStream({
-			// mode: 'production',
-      output: {
-        filename: 'main.js',
-      },
-      module: {
-        rules: [
-          {
-            test: /\.(js)$/,
-            exclude: /(node_modules)/,
-            loader: 'babel-loader',
-            query: {
-              presets: ['env']
-            }
-          }
-        ]
-      },
-      // externals: {
-      //   jquery: 'jQuery'
-      // }
-    }))
-    .pipe(gulp.dest('./dist/js'))
-    // .pipe(plugins.uglify())
-    .pipe(plugins.rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./dist/js'));
+			mode: 'production',
+			output: {
+				filename: 'main.js',
+			},
+			module: {
+				rules: [{
+					test: /\.(js)$/,
+					exclude: /(node_modules)/,
+					loader: 'babel-loader',
+					query: {
+						presets: ['env']
+					}
+				}]
+			},
+			plugins: [
+				new webpack.ProvidePlugin({
+					$: 'jquery',
+					jQuery: 'jquery',
+					'window.jQuery': 'jquery',
+				}),
+			],
+			// externals: {
+			//   jquery: 'jQuery'
+			// }
+		}))
+		.pipe(gulp.dest('./dist/js'))
+		// .pipe(plugins.uglify())
+		.pipe(plugins.rename({
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest('./dist/js'))
+		.pipe(plugins.browserSync.reload({stream:true}));
 });
 
 
@@ -167,7 +176,7 @@ gulp.task('browserSync', getTaskSet('browserSync.js'));
 
 
 gulp.task('watcher', function () {
-	gulp.watch(['app/njk/**/*.njk', 'app/block/**/*.njk'], ['njk', 'listPages']);
+	gulp.watch(['app/njk/**/*.njk', 'app/block/**/*.njk'], ['njk']);
 	gulp.watch(['app/scss/**/*.scss', 'app/block/**/*.scss'], ['css']);
 	gulp.watch(['app/js/**/*.js', 'app/block/**/*.js'], ['js']);
 	gulp.watch('app/src/*.html', ['htmlValidate']);

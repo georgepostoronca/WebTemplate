@@ -16,7 +16,7 @@ module.exports = function (gulp, plugins , webpackStream) {
 			// .pipe(plugins.rename({suffix: ".min"}))
 			// .pipe(gulp.dest("dist/js"))
 			// .pipe(plugins.browserSync.reload({stream:true}));
-		
+
 			.pipe(webpackStream({
 				mode: 'production',
 				output: {

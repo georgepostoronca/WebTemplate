@@ -6,6 +6,7 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^1.5.0",
+    "perfect-scrollbar": "^1.4.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
