@@ -5,9 +5,6 @@
     {% set title = "Default" %}
 {% endif %}
 
-{# CSS Map #}
-{% set cssMap = true %}
-
 <!DOCTYPE html>
 <html lang="ru" {% if htmlClass %}class="{{ htmlClass | trim }}"{% endif %}>
     <head>
@@ -33,6 +30,5 @@
 
         {# Main #}
         <script src="js/main.js?v={{ timestamp }}"></script>
-        {# <script>svg4everybody();</script> #}
     </body>
 </html>
