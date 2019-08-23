@@ -1,19 +1,52 @@
-# 1 YEAR
-<FilesMatch "\.(ico|pdf|flv)$">
-Header set Cache-Control "max-age=29030400, public"
-</FilesMatch>
-# 1 WEEK
-<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
-Header set Cache-Control "max-age=604800, public"
-</FilesMatch>
-# 2 DAYS
-<FilesMatch "\.(xml|txt|css|js)$">
-Header set Cache-Control "max-age=172800, proxy-revalidate"
-</FilesMatch>
-# 1 MIN
-<FilesMatch "\.(html|htm|php)$">
-Header set Cache-Control "max-age=60, private, proxy-revalidate"
-</FilesMatch>
+# BROWSER CACHING USING EXPIRES HEADERS
+<IfModule mod_expires.c>
+    ExpiresActive On
+  
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+  
+    # Video
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/mpeg "access plus 1 year"
+
+    # CSS, JavaScript
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    # Others
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+# BROWSER CACHING USING CACHE-CONTROL HEADERS
+<ifModule mod_headers.c> 
+    # One year for image and video files
+    <filesMatch ".(flv|gif|ico|jpg|jpeg|mp4|mpeg|png|svg|swf|webp)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </filesMatch>
+
+    # One month for JavaScript and PDF files
+    <filesMatch ".(js|pdf)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </filesMatch>
+
+    # One week for CSS files
+    <filesMatch ".(css)$">
+        Header set Cache-Control "max-age=604800, public"
+    </filesMatch>
+</ifModule>
+
+# REMOVE AND DISABLE ETAG
+Header unset ETag
+FileETag None
+# Remove Last-Modified
+Header unset Last-Modified
 
 <IfModule mod_setenvif.c>
 BrowserMatch "MSIE" force-no-vary
