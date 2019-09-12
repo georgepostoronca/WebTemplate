@@ -1,3 +1,8 @@
+// Polyfill
+import './polyfill/foreach.js';
+import './polyfill/scroll.js';
+
+
 import $ from 'jquery';
 import slick from 'slick-carousel';
 import fancybox from "@fancyapps/fancybox";
