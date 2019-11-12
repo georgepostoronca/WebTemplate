@@ -3,6 +3,7 @@
 
 // import './polyfill/foreach.js';
 // import './polyfill/scroll.js';
+//= include ./polyfill/**/*.js
 
 console.log("awdwd");
 
