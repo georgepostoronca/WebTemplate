@@ -1,19 +1,14 @@
 // Polyfill
+// include ./polyfill/**/*.js
+
+// Plugins
+//= include ../../node_modules/jquery/dist/jquery.min.js
+//= include ../../node_modules/svg4everybody/dist/svg4everybody.min.js
+
+// Include All JS 
 //= include ../block/**/*.js
 
-// import './polyfill/foreach.js';
-// import './polyfill/scroll.js';
-//= include ./polyfill/**/*.js
-
-console.log("awdwd");
-
-// import $ from 'jquery';
-// import slick from 'slick-carousel';
-// import fancybox from "@fancyapps/fancybox";
-// import PerfectScrollbar from 'perfect-scrollbar';
-
 // SVG
-// import svg4everybody from "svg4everybody";
-// svg4everybody();
+svg4everybody();
 
 

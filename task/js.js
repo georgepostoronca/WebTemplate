@@ -7,15 +7,14 @@ module.exports = function (gulp, plugins , webpackStream) {
 
 			// Include
 			.pipe(plugins.include())
-			// .pipe(plugins.jsImport())
 
 			// Dest
 			.pipe(gulp.dest("dist/js/"))
 
 			// Uglify
-			// .pipe(plugins.uglify())
-			// .pipe(plugins.rename({suffix: ".min"}))
-			// .pipe(gulp.dest("dist/js"))
+			.pipe(plugins.uglify())
+			.pipe(plugins.rename({suffix: ".min"}))
+			.pipe(gulp.dest("dist/js"))
 			.pipe(plugins.browserSync.reload({stream:true}));
 
 			// .pipe(webpackStream({
