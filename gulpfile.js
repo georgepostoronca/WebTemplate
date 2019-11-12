@@ -112,44 +112,44 @@ gulp.task('css', getTaskPlg('css.js', processors));
 // JS
 var webpackStream = require('webpack-stream');
 const webpack = require('webpack');
-// gulp.task('js', getTaskSet('js.js', webpackStream));
-gulp.task('js', function () {
-	return gulp.src('app/js/main.js')
-		.pipe(plugins.plumber())
-		.pipe(webpackStream({
-			mode: 'production',
-			output: {
-				filename: 'main.js',
-			},
-			module: {
-				rules: [{
-					test: /\.(js)$/,
-					exclude: /(node_modules)/,
-					loader: 'babel-loader',
-					query: {
-						presets: ['env']
-					}
-				}]
-			},
-			plugins: [
-				new webpack.ProvidePlugin({
-					$: 'jquery',
-					jQuery: 'jquery',
-					'window.jQuery': 'jquery',
-				}),
-			],
-			// externals: {
-			//   jquery: 'jQuery'
-			// }
-		}))
-		.pipe(gulp.dest('./dist/js'))
-		// .pipe(plugins.uglify())
-		.pipe(plugins.rename({
-			suffix: '.min'
-		}))
-		.pipe(gulp.dest('./dist/js'))
-		.pipe(plugins.browserSync.reload({stream:true}));
-});
+gulp.task('js', getTaskSet('js.js', webpackStream));
+// gulp.task('js', function () {
+// 	return gulp.src('app/js/main.js')
+// 		.pipe(plugins.plumber())
+// 		.pipe(webpackStream({
+// 			mode: 'production',
+// 			output: {
+// 				filename: 'main.js',
+// 			},
+// 			module: {
+// 				rules: [{
+// 					test: /\.(js)$/,
+// 					exclude: /(node_modules)/,
+// 					loader: 'babel-loader',
+// 					query: {
+// 						presets: ['env']
+// 					}
+// 				}]
+// 			},
+// 			plugins: [
+// 				new webpack.ProvidePlugin({
+// 					$: 'jquery',
+// 					jQuery: 'jquery',
+// 					'window.jQuery': 'jquery',
+// 				}),
+// 			],
+// 			// externals: {
+// 			//   jquery: 'jQuery'
+// 			// }
+// 		}))
+// 		.pipe(gulp.dest('./dist/js'))
+// 		// .pipe(plugins.uglify())
+// 		.pipe(plugins.rename({
+// 			suffix: '.min'
+// 		}))
+// 		.pipe(gulp.dest('./dist/js'))
+// 		.pipe(plugins.browserSync.reload({stream:true}));
+// });
 
 
 

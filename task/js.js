@@ -2,46 +2,47 @@
 module.exports = function (gulp, plugins , webpackStream) {
     return function () {
 		return gulp.src("app/js/main.js")
-			// .pipe(plugins.plumber())
-			// .pipe(plugins.using({ prefix: 'After changed:', color:'green', filesize:true }))
+			.pipe(plugins.plumber())
+			.pipe(plugins.using({ prefix: 'After changed:', color:'orange', filesize:true }))
 
-			// // Include
-			// .pipe(plugins.include())
+			// Include
+			.pipe(plugins.include())
+			// .pipe(plugins.jsImport())
 
-			// // Dest
-			// .pipe(gulp.dest("dist/js/"))
+			// Dest
+			.pipe(gulp.dest("dist/js/"))
 
-			// // Uglify
+			// Uglify
 			// .pipe(plugins.uglify())
 			// .pipe(plugins.rename({suffix: ".min"}))
 			// .pipe(gulp.dest("dist/js"))
-			// .pipe(plugins.browserSync.reload({stream:true}));
-
-			.pipe(webpackStream({
-				mode: 'production',
-				output: {
-					filename: 'app.js',
-				},
-				module: {
-					rules: [
-						{
-							test: /\.(js)$/,
-							exclude: /(node_modules)/,
-							loader: 'babel-loader',
-							query: {
-								presets: ['env']
-							}
-						}
-					]
-				},
-				// externals: {
-				//   jquery: 'jQuery'
-				// }
-			}))
-			.pipe(gulp.dest('./public/'))
-			.pipe(plugins.uglify())
-			.pipe(plugins.rename({ suffix: '.min' }))
-			.pipe(gulp.dest("dist/js"))
 			.pipe(plugins.browserSync.reload({stream:true}));
+
+			// .pipe(webpackStream({
+			// 	mode: 'production',
+			// 	output: {
+			// 		filename: 'app.js',
+			// 	},
+			// 	module: {
+			// 		rules: [
+			// 			{
+			// 				test: /\.(js)$/,
+			// 				exclude: /(node_modules)/,
+			// 				loader: 'babel-loader',
+			// 				query: {
+			// 					presets: ['env']
+			// 				}
+			// 			}
+			// 		]
+			// 	},
+			// 	// externals: {
+			// 	//   jquery: 'jQuery'
+			// 	// }
+			// }))
+			// .pipe(gulp.dest('./public/'))
+			// .pipe(plugins.uglify())
+			// .pipe(plugins.rename({ suffix: '.min' }))
+			// .pipe(gulp.dest("dist/js"))
+			// .pipe(plugins.browserSync.reload({stream:true}));
     };
 };
